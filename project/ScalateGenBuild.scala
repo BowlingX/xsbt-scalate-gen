@@ -17,8 +17,6 @@ object ScalateGenerateBuild extends Build {
   ) ++ credentialSetting
 
   lazy val credentialSetting = credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
-}
-
 
   // Define Root Project (this Plugin)
   lazy val root = Project(id="xsbt-scalate-gen", base = file("."),
