@@ -14,16 +14,9 @@ object ScalateGenerateBuild extends Build {
     organization      := "com.mojolly.scalate",
     publishMavenStyle := false
 
-  ) ++ publishSettings ++ credentialSetting
-
-  /* Publish Settings: */
-  val baseRepo = "http://artifacts.joker.dynamod.de/artifactory/"
+  ) ++ credentialSetting
 
   lazy val credentialSetting = credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
-
-  lazy val publishSettings = publishTo <<= (version) { version: String =>
-   val (name, url) =  ("hf-plugin-releases", baseRepo+"hf-plugins")
-   Some(Resolver.url(name, new URL(url))(Resolver.ivyStylePatterns))
 }
 
 
